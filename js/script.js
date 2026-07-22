@@ -216,9 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
    * Replace these paths with actual client panorama equirectangular photos if needed.
    */
   const tourPanoramas = {
-    living: 'images/pano_living.jpg',
-    kitchen: 'images/pano_kitchen.jpg',
-    bedroom: 'images/pano_bedroom.jpg'
+    living: 'images/pano_living.png',
+    kitchen: 'images/pano_kitchen.png',
+    bedroom: 'images/pano_bedroom.png'
   };
 
   function initPhotoSphereViewer(panoramaUrl) {
