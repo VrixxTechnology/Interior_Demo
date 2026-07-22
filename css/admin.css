@@ -1,0 +1,408 @@
+/* ==========================================================================
+   BS PARADISE INTERIOR — ADMIN CMS DASHBOARD STYLES
+   ========================================================================== */
+
+:root {
+  --admin-sidebar-w: 260px;
+  --admin-header-h: 70px;
+
+  --admin-bg: #F4F1EA;
+  --admin-surface: #FFFFFF;
+  --admin-sidebar-bg: #1C1A18;
+  --admin-sidebar-text: #E5E0D8;
+  --admin-sidebar-active: #2F2A26;
+  
+  --admin-primary: #1C1A18;
+  --admin-accent: #C86D51;
+  --admin-gold: #C5A059;
+  
+  --admin-border: rgba(28, 26, 24, 0.1);
+  --admin-text: #2C2623;
+  --admin-text-muted: #7A7269;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.admin-body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   1. LOGIN VIEW
+   -------------------------------------------------------------------------- */
+.admin-login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: #1C1A18;
+  background-image: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, transparent 60%);
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: #26221F;
+  border: 1px solid var(--admin-gold);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  color: #FAF8F5;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.login-brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-brand-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FAF8F5;
+}
+
+.login-brand-sub {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--admin-accent);
+  margin-top: 0.25rem;
+}
+
+.login-demo-notice {
+  background-color: rgba(197, 160, 89, 0.1);
+  border: 1px dashed var(--admin-gold);
+  padding: 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: #DFCA9B;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. DASHBOARD LAYOUT
+   -------------------------------------------------------------------------- */
+.admin-dashboard-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: var(--admin-sidebar-w);
+  background-color: var(--admin-sidebar-bg);
+  color: var(--admin-sidebar-text);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 1.75rem 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #FAF8F5;
+}
+
+.sidebar-nav {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  color: rgba(249, 247, 244, 0.7);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: var(--admin-sidebar-active);
+  color: var(--admin-gold);
+}
+
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Main Content Area */
+.admin-main {
+  margin-left: var(--admin-sidebar-w);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-topbar {
+  height: var(--admin-header-h);
+  background-color: var(--admin-surface);
+  border-bottom: 1px solid var(--admin-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.topbar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.profile-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--admin-gold);
+  color: #1C1A18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.admin-content-area {
+  padding: 2.5rem 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. METRIC CARDS & WIDGETS
+   -------------------------------------------------------------------------- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.metric-card {
+  background-color: var(--admin-surface);
+  padding: 1.75rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--admin-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.metric-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--admin-primary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--admin-text-muted);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   4. DATA TABLES & CARDS
+   -------------------------------------------------------------------------- */
+.admin-card {
+  background-color: var(--admin-surface);
+  border-radius: 12px;
+  border: 1px solid var(--admin-border);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.admin-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.admin-table th {
+  background-color: rgba(244, 241, 234, 0.5);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--admin-text-muted);
+  font-weight: 600;
+}
+
+.admin-table td {
+  font-size: 0.9375rem;
+  vertical-align: middle;
+}
+
+.table-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-pending { background-color: #FEF3C7; color: #92400E; }
+.badge-confirmed { background-color: #D1FAE5; color: #065F46; }
+.badge-completed { background-color: #E0E7FF; color: #3730A3; }
+
+.action-btn {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1px solid var(--admin-border);
+  background: white;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: var(--admin-primary);
+  color: white;
+}
+
+.action-btn-danger:hover {
+  background-color: #DC2626;
+  color: white;
+  border-color: #DC2626;
+}
+
+/* --------------------------------------------------------------------------
+   5. MODAL DIALOGS
+   -------------------------------------------------------------------------- */
+.admin-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(28, 26, 24, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.admin-modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin-modal {
+  background-color: var(--admin-surface);
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+  padding: 2.25rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.625rem;
+}
+
+.modal-close-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--admin-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+  }
+  .admin-sidebar.is-open {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0;
+  }
+}
